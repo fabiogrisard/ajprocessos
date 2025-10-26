@@ -2,105 +2,254 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AJ Processos</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/fabiogrisard/ajprocessos/refs/heads/main/logoana.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Sistema de Processos Judiciais">
     <meta name="theme-color" content="#007bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AJ Processos">
+    
+    <title>AJ Processos</title>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/fabiogrisard/ajprocessos/refs/heads/main/ajetl-73emu-001.ico">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/fabiogrisard/ajprocessos/refs/heads/main/logoana.jpg">
+    
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
             background-color: #f4f4f9;
             color: #333;
-            margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
+            padding-top: max(20px, env(safe-area-inset-top));
+            padding-bottom: max(20px, env(safe-area-inset-bottom));
         }
+        
         .container {
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             max-width: 800px;
-            width: 90%;
+            width: 100%;
             margin-bottom: 20px;
         }
+        
         h1 {
             color: #007BFF;
             margin-bottom: 20px;
             text-align: center;
+            font-size: 28px;
         }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            min-height: 120px;
+            align-items: center;
+        }
+        
         img {
-            display: block;
-            width: 120px;
-            margin: 0 auto 20px;
-            border-radius: 4px;
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+            max-width: 100%;
         }
+        
+        .logo-fallback {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            font-size: 16px;
+        }
+        
         .button-grid {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 10px;
             width: 100%;
         }
+        
         .button {
-            padding: 15px 20px;
+            padding: 16px 20px;
             background-color: #007BFF;
             color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
             text-decoration: none;
             text-align: center;
             display: block;
             width: 100%;
-            margin-bottom: 10px;
-            transition: background-color 0.3s;
-            font-weight: bold;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
+        
         .button:hover {
             background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
         }
+        
         .button:active {
-            transform: scale(0.98);
+            transform: translateY(0);
         }
-        /* Estilos para dispositivos móveis */
+        
+        .status-message {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            border-left: 4px solid #007BFF;
+        }
+        
+        .install-button {
+            display: none;
+            padding: 12px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .install-button:hover {
+            background-color: #218838;
+        }
+        
+        .install-button.show {
+            display: block;
+        }
+        
         @media (max-width: 600px) {
             body {
                 padding: 10px;
+                padding-top: max(10px, env(safe-area-inset-top));
             }
+            
             .container {
-                width: 100%;
-                padding: 10px;
+                padding: 15px;
+                border-radius: 10px;
             }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
             .button {
-                width: 100%;
-                padding: 12px 15px;
-                font-size: 14px;
+                padding: 14px 16px;
+                font-size: 15px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://raw.githubusercontent.com/fabiogrisard/ajprocessos/refs/heads/main/logoana.jpg" alt="Logo AJ Processos">
+        <button id="installBtn" class="install-button">📱 Instalar App</button>
+        
+        <div class="logo-container">
+            <img id="logo" src="https://raw.githubusercontent.com/fabiogrisard/ajprocessos/refs/heads/main/logoana.jpg" alt="Logo AJ Processos" onerror="showFallback()">
+        </div>
+        
+        <h1>AJ Processos</h1>
+        
         <div class="button-grid">
             <a href="https://fabiogrisard.github.io/addprocesso/" class="button">Incluir Processo</a>
             <a href="https://fabiogrisard.github.io/consultarprocesso/" class="button">Consultar Processo</a>
             <a href="https://fabiogrisard.github.io/criarprocuracao/" class="button">Criar Procuração</a>
             <a href="https://fabiogrisard.github.io/peticaoinicial/" class="button">Petição Inicial</a>
         </div>
+        
+        <div class="status-message" id="status">⏳ Carregando...</div>
     </div>
+
     <script>
+        // Mostrar fallback se imagem não carregar
+        function showFallback() {
+            const logoContainer = document.querySelector('.logo-container');
+            logoContainer.innerHTML = '<div class="logo-fallback">AJ<br>Processos</div>';
+        }
+
+        // Variável para armazenar o prompt de instalação
+        let deferredPrompt;
+        const installBtn = document.getElementById('installBtn');
+        const statusDiv = document.getElementById('status');
+
+        // Detectar quando o app está pronto para instalar
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.classList.add('show');
+            console.log('✅ App pronto para instalar!');
+        });
+
+        // Botão de instalação
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`Usuário respondeu: ${outcome}`);
+                deferredPrompt = null;
+                installBtn.classList.remove('show');
+            }
+        });
+
+        // Registrar Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('service-worker.js');
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registrado!');
+                        statusDiv.innerHTML = '✅ Aplicativo pronto para instalação offline';
+                        statusDiv.style.borderLeftColor = '#28a745';
+                    })
+                    .catch(error => {
+                        console.error('❌ Erro ao registrar Service Worker:', error);
+                        statusDiv.innerHTML = '⚠️ Modo offline pode não estar disponível. Verifique o console.';
+                        statusDiv.style.borderLeftColor = '#ffc107';
+                    });
             });
+        } else {
+            statusDiv.innerHTML = '⚠️ Seu navegador não suporta PWA';
+            statusDiv.style.borderLeftColor = '#dc3545';
         }
+
+        // Detectar instalação bem-sucedida
+        window.addEventListener('appinstalled', () => {
+            console.log('🎉 App instalado com sucesso!');
+            statusDiv.innerHTML = '🎉 App instalado com sucesso!';
+            statusDiv.style.borderLeftColor = '#28a745';
+        });
     </script>
 </body>
 </html>
