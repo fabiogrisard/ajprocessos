@@ -1,20 +1,40 @@
 {
-  "name": "AJ Processos",
+  "name": "AJ Processos - Sistema de Processos Judiciais",
   "short_name": "AJ Processos",
-  "start_url": ".",
+  "description": "Aplicativo para gerenciamento de processos judiciais",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#f4f4f9",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
   "theme_color": "#007bff",
+  "categories": ["productivity"],
+  "screenshots": [
+    {
+      "src": "https://raw.githubusercontent.com/fabiogrisard/ajprocessos/refs/heads/main/logoana.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    }
+  ],
   "icons": [
     {
       "src": "https://raw.githubusercontent.com/fabiogrisard/ajprocessos/refs/heads/main/ajetl-73emu-001.ico",
       "sizes": "192x192",
-      "type": "image/x-icon"
+      "type": "image/x-icon",
+      "purpose": "any"
     },
     {
       "src": "https://raw.githubusercontent.com/fabiogrisard/ajprocessos/refs/heads/main/ajetl-73emu-001.ico",
       "sizes": "512x512",
-      "type": "image/x-icon"
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/fabiogrisard/ajprocessos/refs/heads/main/logoana.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "maskable"
     }
   ]
 }
